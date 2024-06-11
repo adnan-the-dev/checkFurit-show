@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h3 {
+        color: red;
+    }
+
+    #mainDiv {
+        height: 100vh;
+        width: 700px;
+        border-radius: 10px;
+        border-bottom: none;
+        border-top: none;
+        border: 2px solid aqua;
+        text-align: center;
+        margin: auto;
+        padding-top: 50px;
+    }
+
+    #getValue {
+        width: 200px;
+        height: 35px;
+        border-radius: 12px;
+        border: 1px solid tomato;
+    }
+
+    #btn {
+        background-color: transparent;
+        color: darkblue;
+        font-weight: bold;
+        padding: 10px;
+        border: 2px solid magenta;
+        border-radius: 12px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
+    #btn:hover {
+        color: white;
+        background-color: green;
+    }
+
+    #picShow {
+        width: "300px";
+        height: "300px";
+        border: 2px solid red;
+    }
+    .image{
+        /* width: "200px";
+        height: "200px";
+        object-fit: cover; */
+        display: block;
+            margin: 20px auto;
+    }
+</style>
+
+<body>
+    <div>
+        <h2>Kindly choose your fruit name:</h2>
+    </div>
+    <h3>'Apple' , 'Banana' , 'Mango' , 'Apricote' , 'Gauva' , 'Grapes' , 'Orange'</h3>
+    </div>
+    <div id="mainDiv">
+        <input type="text" id="getValue" placeholder="Enter fruit name">
+        <button id="btn" onclick="fruitPic()">Process</button>
+        <div id="picShow"></div>
+    </div>
+
+    <script>
+        let fruit = [
+            'apple',
+            'banana',
+            'mango',
+            'apricot',
+            'gauva',
+            'grapes',
+            'orange',
+            'cherry'
+        ];
+
+        let newImage;
+
+        const imageShow = () => {
+            newImage = document.createElement('img');
+            newImage.className = 'image'
+            newImage.style.width = '300px';
+            newImage.style.height = '300px';  
+            let pic = document.getElementById('picShow')
+            pic.appendChild(newImage)
+        }
+
+        const fruitPic = () => {
+            let input = document.getElementById('getValue').value;
+            for (let i = 0; i < fruit.length; i++) {
+                if (input.toLowerCase().includes(fruit[i])) {
+                    imageShow()
+                    // newImage.src = fruit[i] + '.jpg'
+                    newImage.src = 'assetes/' + fruit[i] + '.jpg';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
